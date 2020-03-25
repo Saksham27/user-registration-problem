@@ -6,6 +6,9 @@ read -p "Enter Name : " name
 # taking email as input
 read -p "Enter Email : " email
 
+# taking number as input
+read -p "Enter Mobile number with country code : " number
+
 # function to validate name
 # param1 : Name
 function validateName() {
@@ -36,6 +39,19 @@ function validateEmail() {
 	fi
 }
 
+#fucntion to validate mobile number
+# param1 : number
+#91 9919819801
+function validateMobileNumber() {
+	mobileNumberRegex="^([0-9]{2}[ ]{1}[0-9]{10})$"
+	if [[ $1 =~ $mobileNumberRegex ]]
+	then
+		echo "Number is valid."
+	else
+		echo "Invalid number."
+	fi
+}
 
 validateName "$name"
 validateEmail "$email"
+validateMobileNumber "$number"
