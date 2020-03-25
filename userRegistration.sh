@@ -1,14 +1,5 @@
 #!/bin/bash -x
 
-# taking name as input
-read -p "Enter Name : " name
-
-# taking email as input
-read -p "Enter Email : " email
-
-# taking number as input
-read -p "Enter Mobile number with country code : " number
-
 # function to validate name
 # param1 : Name
 function validateName() {
@@ -52,6 +43,32 @@ function validateMobileNumber() {
 	fi
 }
 
+# fucntion to validate password
+# param1 : password
+function validatePassword() {
+	passwordRegex="\w{8,}"
+	if [[ $1 =~ $passwordRegex ]]
+	then
+		echo "Password is valid."
+	else
+		echo "Invalid password."
+	fi
+}
+
+
+# taking name as input
+read -p "Enter Name : " name
+
+# taking email as input
+read -p "Enter Email : " email
+
+# taking number as input
+read -p "Enter Mobile number with country code : " number
+
+# taking password from user
+read -p "Enter Password : " password
+
 validateName "$name"
 validateEmail "$email"
 validateMobileNumber "$number"
+validatePassword "$password"
