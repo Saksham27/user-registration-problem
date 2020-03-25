@@ -1,8 +1,10 @@
 #!/bin/bash -x
 
 # taking name as input
-read -p "First Name : " name
+read -p "Enter Name : " name
 
+# taking email as input
+read -p "Enter Email : " email
 
 # function to validate name
 # param1 : Name
@@ -20,4 +22,20 @@ function validateName() {
 	fi
 }
 
+# function to validate email
+# param1 : Email
+# abc.xyz@bl.co.in
+function validateEmail() {
+	emailRegex="abc((\.[A-Z]+[a-z]*[0-9]*)|(\.[A-Z]*[a-z]+[0-9]*)|(\.[A-Z]*[a-z]*[0-9]+)|^)?@bl\.co(\.[a-z]+){1,}"
+
+	if [[ $1 =~ $emailRegex ]]
+	then
+		echo "Email is valid."
+	else
+		echo "Invalid email."
+	fi
+}
+
+
 validateName "$name"
+validateEmail "$email"
