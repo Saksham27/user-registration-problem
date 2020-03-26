@@ -16,7 +16,7 @@ function validateName() {
 	fi
 }
 
-	# function to validate email
+# function to validate email
 # param1 : Email
 # abc.xyz@bl.co.in
 function validateEmail() {
@@ -43,10 +43,10 @@ function validateMobileNumber() {
 	fi
 }
 
-# fucntion to validate password
+# fucntion to validate password 
 # param1 : password
 function validatePassword() {
-	passwordRegex="\w*(.*[A-Z]+)*(.*[0-9]+)*(.*[\!\@\#\$\%\^\&\*\=\+]+)*\w{5,}"
+	passwordRegex="\w*(.*[A-Z]+)*(.*[0-9]+)*(.*[\!\@\#\$\%\^\&\*\=\+]+)*\w{5,}" # minimum 8 characters, atlest 1 uppercase, atlest 1 number, exactly 1 special character
 	if [[ $1 =~ $passwordRegex ]] 
 	then
 		echo "Password is valid."
