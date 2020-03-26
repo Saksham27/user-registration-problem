@@ -46,7 +46,7 @@ function validateMobileNumber() {
 # fucntion to validate password
 # param1 : password
 function validatePassword() {
-	passwordRegex="(.*[A-Z])+(\w){7,}"
+	passwordRegex="(\w)*(.*[A-Z])+(\w){7,}"
 	if [[ $1 =~ $passwordRegex ]] 
 	then
 		echo "Password is valid."
